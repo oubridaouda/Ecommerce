@@ -1,16 +1,29 @@
 <?php
 
-namespace Controller\Product;
+namespace Controller;
 
-class ArticleController
+class ArticleController extends controller
 {
     public function index()
     {
-        echo "juste l'index";
+        return $this->view('product.index');
     }
 
-    public function show(int $id)
+    public function login(int $id)
     {
-        echo "je suis la " . $id;
+        return $this->view('connexion.LoginView');
+
+    }
+
+    public function products()
+    {
+        return $this->view('product.index');
+
+    }
+
+    public function subscription()
+    {
+            return $this->view('connexion.Subscription');
+
     }
 }
