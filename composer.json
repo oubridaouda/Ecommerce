@@ -1,0 +1,16 @@
+{
+    "name": "daouda/e-commerce",
+    "authors": [
+        {
+            "name": "OubriDaouda",
+            "email": "oubridaouda@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Router\\": "routes/",
+            "Controller\\": "controller/"
+        }
+    },
+    "require": {}
+}
