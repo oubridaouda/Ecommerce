@@ -15,15 +15,21 @@ class ArticleController extends controller
 
     }
 
-    public function products()
+    public function products($id)
     {
-        return $this->view('product.index');
+        return $this->view('product.ProductDetail', compact('id'));
 
     }
 
     public function subscription()
     {
             return $this->view('connexion.Subscription');
+
+    }
+
+    public function users(int $id)
+    {
+        return $this->view('connexion.Users', compact('id'));
 
     }
 }
