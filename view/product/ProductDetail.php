@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Subscription</h1>
+<h1>Product detail page <?=  $params['id']?></h1>
 </body>
 </html>
