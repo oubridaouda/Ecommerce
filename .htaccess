@@ -1,0 +1,11 @@
+#réecriture activé
+RewriteEngine On
+
+#precondition: si on a pas de fichier que l'on peut atteidre
+# on refait la contdition
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#récupere l'url entiere et renvoyer vers public/index.php
+RewriteRule ^(.*)$ public/index.php?url=$1
+
