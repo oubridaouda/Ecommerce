@@ -12,5 +12,6 @@
                 <label for="firstname">Mot de pass</label>
             </div>
         </form>
+        <div class=""></div>
     </div>
 </div>
