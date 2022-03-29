@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" media="screen" href="sass/custom/login.css"/>
 <div class="login-page">
     <div class="login-card">
         <form method="POST" action="">
