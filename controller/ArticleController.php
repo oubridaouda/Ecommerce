@@ -11,9 +11,9 @@ class ArticleController extends controller
         return $this->view('product.index');
     }
 
-    public function login(int $id)
+    public function login()
     {
-        return $this->view('connexion.LoginView');
+        return $this->view('connexion.Login');
 
     }
 
@@ -32,9 +32,15 @@ class ArticleController extends controller
 
     }
 
-    public function subscription()
+    public function signup()
     {
-            return $this->view('connexion.Subscription');
+            return $this->view('connexion.SignUp');
+
+    }
+
+    public function errorPage()
+    {
+        return $this->view('404-error.index');
 
     }
 
