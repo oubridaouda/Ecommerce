@@ -16,6 +16,7 @@ $router->get('/', 'Controller\ArticleController@index');
 $router->get('/404', 'Controller\ArticleController@errorPage');
 $router->get('/login', 'Controller\ArticleController@login');
 $router->get('/signup', 'Controller\ArticleController@signup');
+$router->get('/add-products', 'Controller\ArticleController@addProducts');
 $router->get('/products/:id', 'Controller\ArticleController@products');
 $router->get('/posts/:id', 'Controller\ArticleController@users');
 
