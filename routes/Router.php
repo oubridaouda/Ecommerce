@@ -9,22 +9,21 @@ class Router
     public $url;
     public $routes = [];
 
-    //L'$url que l'on recupere avec construct
-    public function __construct($url)
+
+    public function __construct($url)    //L'$url que l'on recupere avec construct
     {
 
         $this->url = trim($url, '/');
     }
 
-    //la function de routage
-    public function get(string $path, string $action)
+
+    public function get(string $path, string $action)    //la function de routage
     {
-        //Les routes sont stocké dans un tableau
-        $this->routes['GET'][] = new Route($path, $action);
+        $this->routes['GET'][] = new Route($path, $action);//Les routes sont stocké dans un tableau
     }
 
-    //Verifie si la route existe et retourne la vue correspondante
-    public function run()
+
+    public function run()    //Verifie si la route existe et retourne la vue correspondante
     {
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
             return header("HTTP/1.0 404 Not Found");
@@ -34,6 +33,6 @@ class Router
                 $route->execute($this->url);
             }
         }
-        return header("HTTP/1.0 404 Not Found");
+//        return header("HTTP/1.0 404 Not Found");
     }
 }

@@ -11,9 +11,16 @@ body{
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, 20rem);
 }
-.products-container{
+.products-container {
     margin: auto;
     width: 1000px
+}
+@media (max-width: 750px) {
+
+    .products-container {
+        margin: auto;
+        max-width: 750px
+    }
 }
 .wsk-cp-product{
     background:#fff;
