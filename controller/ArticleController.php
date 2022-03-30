@@ -19,12 +19,12 @@ class ArticleController extends controller
 
     public function products($id)
     {
-        $db = new DbConnection('e_commerce','localhost','root','');
+        $db = new DbConnection('e_commerce', 'localhost', 'root', '');
 
         $req = $db->getPDO()->query('select * from users');
         $posts = $req->fetchAll();
         var_dump($req);
-        foreach($posts as $post){
+        foreach ($posts as $post) {
             echo $post->username;
         }
 
@@ -32,9 +32,15 @@ class ArticleController extends controller
 
     }
 
+    public function addProducts()
+    {
+        return $this->view('product.AddForm');
+
+    }
+
     public function signup()
     {
-            return $this->view('connexion.SignUp');
+        return $this->view('connexion.SignUp');
 
     }
 
