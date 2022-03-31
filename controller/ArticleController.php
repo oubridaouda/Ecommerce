@@ -2,13 +2,17 @@
 
 namespace Controller;
 
-use Database\DbConnection;
+
+use Models\Product;
 
 class ArticleController extends controller
 {
     public function index()
     {
-        return $this->view('product.index');
+        $product = new Product($this->getDB());
+        $products = $product->all();
+
+        return $this->view('product.index', compact('products'));
     }
 
     public function login()
@@ -19,22 +23,19 @@ class ArticleController extends controller
 
     public function products($id)
     {
-        $db = new DbConnection('e_commerce', 'localhost', 'root', '');
-
-        $req = $db->getPDO()->query('select * from users');
-        $posts = $req->fetchAll();
-        var_dump($req);
-        foreach ($posts as $post) {
-            echo $post->username;
-        }
-
-        return $this->view('product.ProductDetail', compact('id'));
-
+        $product = new Product($this->getDB());
+        $products = $product->findById($id);
+        return $this->view('product.ProductDetail',compact('products'));
     }
 
     public function addProducts()
     {
         return $this->view('product.AddForm');
+
+    }
+    public function ProductsInsert()
+    {
+        return header('Location: /add-products');
 
     }
 
