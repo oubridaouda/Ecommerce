@@ -17,13 +17,20 @@ $router = new Router($_GET['url']); //creation d'une nouvelle instance de Router
 
 //Les routes
 $router->get('/', 'Controller\ArticleController@index');
-$router->get('/404', 'Controller\ArticleController@errorPage');
 $router->get('/login', 'Controller\ArticleController@login');
 $router->get('/signup', 'Controller\ArticleController@signup');
 $router->get('/add-products', 'Controller\ArticleController@addProducts');
 $router->get('/products-insert', 'Controller\ArticleController@ProductsInsert');
 $router->get('/products/:id', 'Controller\ArticleController@products');
 $router->get('/posts/:id', 'Controller\ArticleController@users');
+$router->get('/your-products/:id', 'Controller\User\ProductContoller@findUserProduct');
+$router->post('/product-delete/:id', 'Controller\User\ProductContoller@destroy');
+$router->post('/product-edit/:id', 'Controller\User\ProductContoller@update');
 
+try {
 
-$router->run(); // execution de la function run qui renvoie les vues
+    $router->run(); // execution de la function run qui renvoie les vues
+
+}catch(\Exceptions\NotFound $e){
+    echo $e->error404();
+}

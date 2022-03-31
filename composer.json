@@ -11,7 +11,8 @@
             "Router\\": "routes/",
             "Controller\\": "controller/",
             "Database\\": "database",
-            "Models\\": "models"
+            "Models\\": "models",
+            "Exceptions\\": "exceptions"
         }
     },
     "require": {
