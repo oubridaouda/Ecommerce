@@ -4,6 +4,7 @@ namespace Controller;
 
 
 use Models\Product;
+use Models\User;
 
 class ArticleController extends controller
 {
@@ -42,12 +43,6 @@ class ArticleController extends controller
     public function signup()
     {
         return $this->view('connexion.SignUp');
-
-    }
-
-    public function errorPage()
-    {
-        return $this->view('404-error.index');
 
     }
 

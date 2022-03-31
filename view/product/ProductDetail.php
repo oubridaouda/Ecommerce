@@ -1,5 +1,6 @@
 <div class="products-card">
-    <?php foreach ($params['products'] as $param) { ?>
+    <?php foreach ($params as $param) { ?>
+    <?= var_dump($param) ?>
         <div class="card">
             <div class="wsk-cp-product">
                 <div class="wsk-cp-img">
@@ -11,10 +12,10 @@
                         <span>Ethnic</span>
                     </div>
                     <div class="title-product">
-                        <h3><?= $param->title ?></h3>
+                        <h3><?= $param->title_product ?></h3>
                     </div>
                     <div class="description-prod">
-                        <p><?= $param->product_description ?></p>
+                        <p><?= $param->getExcerpt() ?></p>
                     </div>
                     <div class="card-footer">
                         <div class="wcf-left"><span class="price">200£</span></div>
