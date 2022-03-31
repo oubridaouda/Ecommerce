@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="
     <?= SCRIPT . 'assets' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'card.css?=' . time() ?>"/>
     <link rel="stylesheet"
-          href="<?= SCRIPT . 'assets' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'navbar.css?='?>"/>
+          href="<?= SCRIPT . 'assets' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'navbar.css?=' ?>"/>
+    <link rel="stylesheet"
+          href="<?= SCRIPT . 'assets' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'procduct-form.css' ?>"/>
 
 </head>
 <body style="font-family: 'Muli', sans-serif; background: #ddd;">
@@ -58,6 +60,6 @@
 </nav>
 
 <!--        Toutes les page sont appelé dans le container via $content -->
-<div class="container"><?= $content ?></div>
+<div class="products-container"><?= $content ?></div>
 </body>
 </html>

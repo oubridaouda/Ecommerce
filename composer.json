@@ -10,7 +10,8 @@
         "psr-4": {
             "Router\\": "routes/",
             "Controller\\": "controller/",
-            "Database\\": "database"
+            "Database\\": "database",
+            "Models\\": "models"
         }
     },
     "require": {
