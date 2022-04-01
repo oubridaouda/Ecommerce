@@ -22,21 +22,17 @@
     <body class="body">
       <div class="login-page">
         <div class="form">
-          <form>
-            <input type="text" placeholder="full name" />
-            <input type="text" placeholder="email address" />
-            <input type="text" placeholder="pick a username" />
-            <input type="password" id="password" placeholder="set a password" />
+          <form action="signup" method="post">
+            <input type="text" name="username" placeholder="Nom d'utilisateur" />
+            <input type="password" id="password" name="password" placeholder="Mot de passe" />
             <i class="fas fa-eye" onclick="show()"></i>
             <br>
             <br>
+              <button type="submit">
+                  SIGN UP
+              </button>
           </form>
 
-          <form class="login-form">
-            <button type="button" onclick="window.location.href='login.html'">
-              SIGN UP
-            </button>
-          </form>
         </div>
       </div>
     </body>

@@ -12,15 +12,17 @@ class ProductContoller extends controller
 
     public function index()
     {
+        $this->isUser();
         $products = (new Product($this->getDB()))->all();
 
         return $this->view('user-pages.index', compact('products'));
     }
 
-    public function findUserProduct(int $id)
+    public function findUserProduct()
     {
+        $this->isUser();
         $Userproduct = new User($this->getDB());
-        $Userproducts = $Userproduct->findUserProductById($id);
+        $Userproducts = $Userproduct->findUserProductById($_SESSION['auth']);
         return $this->view('user-pages.User-products', compact('Userproducts'));
 
     }
@@ -38,6 +40,7 @@ class ProductContoller extends controller
 
     public function edit(int $id)
     {
+        $this->isUser();
 
         $product = (new Product($this->getDB()))->findById($id);
 
@@ -47,6 +50,7 @@ class ProductContoller extends controller
 
     public function update(int $id)
     {
+        $this->isUser();
         $sql = new Product($this->getDB());
 
         $result = $sql->update($id, $_POST);
@@ -62,6 +66,7 @@ class ProductContoller extends controller
 
     public function addProducts()
     {
+        $this->isUser();
         return $this->view('product.AddForm');
 
     }
@@ -69,6 +74,8 @@ class ProductContoller extends controller
 
     public function createProducts()
     {
+        $this->isUser();
+
         $sql = new Product($this->getDB());
         $result = $sql->create($_POST);
 
