@@ -62,14 +62,12 @@ class ProductContoller extends controller
 
     }
 
-
     public function addProducts()
     {
         $this->isUser();
         return $this->view('product.AddForm');
 
     }
-
 
     public function createProducts()
     {

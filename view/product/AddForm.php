@@ -9,7 +9,7 @@
             <input name="price" type="text" value="<?= $params['product']->price ?? '' ?>" placeholder="Prix"/>
             <input name="description" type="text" value="<?= $params['product']->description ?? '' ?>"
                    placeholder="Description"/>
-            <input name="image" type="file" value="<?= $params['product']->image  ?? '' ?>"/>
+            <input name="image" type="file" value="<?= $params['product']->image ?? '' ?>"/>
             <br>
             <br>
             <div class="login-form">

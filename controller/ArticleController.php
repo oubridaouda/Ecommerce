@@ -20,7 +20,7 @@ class ArticleController extends controller
     {
         $product = new Product($this->getDB());
         $products = $product->findById($id);
-        return $this->view('product.ProductDetail',compact('products'));
+        return $this->view('product.ProductDetail', compact('products'));
     }
 
     public function ProductsInsert()

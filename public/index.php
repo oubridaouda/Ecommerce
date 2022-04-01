@@ -13,7 +13,8 @@ const DB_HOST = 'localhost';
 const DB_USER = 'root';
 const DB_PWD = '';
 
-$router = new Router($_GET['url']); //creation d'une nouvelle instance de Router
+//creation d'une nouvelle instance de Router
+$router = new Router($_GET['url']);
 
 /*Les routes*/
 
@@ -40,6 +41,6 @@ try {
 
     $router->run(); // execution de la function run qui renvoie les vues
 
-}catch(\Exceptions\NotFound $e){
+} catch (\Exceptions\NotFound $e) {
     echo $e->error404();
 }

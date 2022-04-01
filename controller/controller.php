@@ -13,7 +13,7 @@ abstract class controller
     public function __construct(DbConnection $db)
     {
         //Si la session est activé et inexistante la demarrer
-        if(session_status() == PHP_SESSION_NONE){
+        if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
         $this->db = $db;
@@ -37,11 +37,12 @@ abstract class controller
         return $this->db;
     }
 
-    protected function isUser(){
+    protected function isUser()
+    {
 
-        if(isset($_SESSION['auth'])){
+        if (isset($_SESSION['auth'])) {
             return true;
-        }else{
+        } else {
             return header('Location: /login');
         }
     }
