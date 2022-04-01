@@ -5,7 +5,6 @@ namespace Controller\User;
 use Controller\controller;
 use Models\Product;
 use Models\User;
-use function Sodium\compare;
 
 class ProductContoller extends controller
 {
@@ -33,7 +32,7 @@ class ProductContoller extends controller
         $result = $product->destroy($id);
 
         if ($result) {
-            return header('Location: /your-products/1');
+            return header('Location: /your-products');
         }
 
     }
