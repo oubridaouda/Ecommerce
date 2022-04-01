@@ -35,8 +35,8 @@
                     >
                 </li>
                 <li>
-                    <a href="/add-products">
-                        Ajouter un Produits</a
+                    <a href="/your-products/1">
+                        Mes Produits</a
                     >
                 </li>
             </ul>

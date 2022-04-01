@@ -29,11 +29,6 @@ class ArticleController extends controller
         return $this->view('product.ProductDetail',compact('products'));
     }
 
-    public function addProducts()
-    {
-        return $this->view('product.AddForm');
-
-    }
     public function ProductsInsert()
     {
         return header('Location: /add-products');

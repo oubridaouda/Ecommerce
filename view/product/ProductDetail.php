@@ -1,6 +1,6 @@
 <div class="products-card">
     <?php foreach ($params as $param) { ?>
-    <?= var_dump($param) ?>
+<!--    --><?//= var_dump($param) ?>
         <div class="card">
             <div class="wsk-cp-product">
                 <div class="wsk-cp-img">

@@ -36,12 +36,46 @@ class ProductContoller extends controller
 
     }
 
-    public function update(int $id)
+    public function edit(int $id)
     {
-        $product = (new User($this->getDB()))->findById($id);
 
-        return $this->view('product.AddForm', compare('product'));
+        $product = (new Product($this->getDB()))->findById($id);
+
+        return $this->view('product.AddForm', compact('product'));
 
     }
 
+    public function update(int $id)
+    {
+        $sql = new Product($this->getDB());
+
+        $result = $sql->update($id, $_POST);
+        $product = $sql->findById($id);
+
+        if ($result) {
+
+            return $this->view('product.AddForm', compact('product'));
+        }
+
+    }
+
+
+    public function addProducts()
+    {
+        return $this->view('product.AddForm');
+
+    }
+
+
+    public function createProducts()
+    {
+        $sql = new Product($this->getDB());
+        $result = $sql->create($_POST);
+
+        if ($result) {
+
+            return header("Location: /add-products");
+        }
+
+    }
 }

@@ -44,33 +44,35 @@
     }
 </style>
 <a href="/add-products" class="button" type="">Ajouter</a>
-<table class="styled-table">
-    <thead>
-    <tr>
-        <th>N</th>
-        <th>Titre</th>
-        <th>Prix</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!--    --><?php //echo '<pre>';print_r($params['Userproducts']); echo '<pre>';?>
-
-    <?php foreach ($params['Userproducts'] as $key => $param) { ?>
+<div style="display: flex; justify-content: center">
+    <table class="styled-table">
+        <thead>
         <tr>
-            <td><?= $param->product_id ?></td>
-            <td><?= $param->title_product ?></td>
-            <td><?= $param->price ?></td>
-            <td>
-
-                <form  action="/product-delete/<?= $param->product_id ?>" method="POST">
-                    <a href="/add-products" class="button" type="">Modifier</a>
-
-                    <button type="submit" class="button">Supprimer</button>
-                </form>
-            </td>
+            <th>N</th>
+            <th>Titre</th>
+            <th>Prix</th>
+            <th>Action</th>
         </tr>
-    <?php }; ?>
-    <!-- and so on... -->
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <!--    --><?php //echo '<pre>';print_r($params['Userproducts']); echo '<pre>';?>
+
+        <?php foreach ($params['Userproducts'] as $key => $param) { ?>
+            <tr>
+                <td><?= $param->product_id ?></td>
+                <td><?= $param->title_product ?></td>
+                <td><?= $param->price ?></td>
+                <td>
+
+                    <form action="/product-delete/<?= $param->product_id ?>" method="POST">
+                        <a href="/product-edit/<?= $param->product_id ?>" class="button" type="">Modifier</a>
+
+                        <button type="submit" class="button">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        <?php }; ?>
+        <!-- and so on... -->
+        </tbody>
+    </table>
+</div>
