@@ -1,5 +1,5 @@
 <div class="login-page">
-    <h2>Formulaire d'ajout d'un articles</h2>
+    <h3>Formulaire <?= isset($params['product']) ? "de modification" : "d'jouter" ?> d'un article</h3>
     <div class="form">
         <form action="<?= isset($params['product']) ? "/product-edit/{$params['product']->product_id}" : "/create-products" ?>"
               method="post">
@@ -9,13 +9,12 @@
             <input name="price" type="text" value="<?= $params['product']->price ?? '' ?>" placeholder="Prix"/>
             <input name="description" type="text" value="<?= $params['product']->description ?? '' ?>"
                    placeholder="Description"/>
-            <input name="id_of_user" type="text" value="<?= $params['product']->id_of_user ?? '1' ?>"
-                   placeholder="Description"/>
+            <input name="image" type="file" value="<?= $params['product']->image  ?? '' ?>"/>
             <br>
             <br>
             <div class="login-form">
                 <button type="submit">
-                    Ajouter
+                    <?= isset($params['product']) ? "Modifier" : "Ajouter" ?>
                 </button>
             </div>
         </form>

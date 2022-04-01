@@ -1,23 +1,26 @@
 <div class="shell">
-    <?php if(isset($_GET['success'])): ?>
+    <?php if (isset($_GET['success'])): ?>
         <div>Vous etes connecté!</div>
-    <?php endif?>
+    <?php endif ?>
     <div class="products-card">
         <?php foreach ($params['products'] as $param) { ?>
-<!--        --><?//=//var_dump($param) ?>
+            <!--        --><? //=//var_dump($param) ?>
             <div class="card">
                 <div class="wsk-cp-product">
+                    <a style="
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;" href="/products/<?= $param->product_id ?>"></a>
                     <div class="wsk-cp-img">
                         <img src="<?= SCRIPT . 'assets' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'image-1.jpg' ?>"
                              alt="Product" class="img-responsive"/>
                     </div>
                     <div class="wsk-cp-text">
                         <div class="category">
-                            <span><?= $param->publishdate ?></span>
+                            <span><?= $param->price ?> £</span>
                         </div>
                         <div class="title-product">
-                            <h3><a style="text-decoration: none; color:black;"
-                                   href="/products/<?= $param->product_id ?>"><?= $param->title_product ?></a></h3>
+                            <h3><?= $param->title_product ?></h3>
                         </div>
                         <div class="description-prod">
                             <p><?= $param->getExcerpt() ?></p>
