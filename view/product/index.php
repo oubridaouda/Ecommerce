@@ -1,4 +1,7 @@
 <div class="shell">
+    <?php if(isset($_GET['success'])): ?>
+        <div>Vous etes connecté!</div>
+    <?php endif?>
     <div class="products-card">
         <?php foreach ($params['products'] as $param) { ?>
 <!--        --><?//=//var_dump($param) ?>

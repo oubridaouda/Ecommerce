@@ -1,9 +1,11 @@
 <div class="login-page">
     <h2>Formulaire d'ajout d'un articles</h2>
     <div class="form">
-        <form action="<?= isset($params['product']) ? "/product-edit/{$params['product']->product_id}" : "/create-products" ?>" method="post">
+        <form action="<?= isset($params['product']) ? "/product-edit/{$params['product']->product_id}" : "/create-products" ?>"
+              method="post">
             <!--            --><?php //echo'<pre>'; print_r($params['product']); echo'<pre>';?>
-            <input name="title_product" type="text" value="<?= $params['product']->title_product ?? '' ?>" placeholder="Titre"/>
+            <input name="title_product" type="text" value="<?= $params['product']->title_product ?? '' ?>"
+                   placeholder="Titre"/>
             <input name="price" type="text" value="<?= $params['product']->price ?? '' ?>" placeholder="Prix"/>
             <input name="description" type="text" value="<?= $params['product']->description ?? '' ?>"
                    placeholder="Description"/>
@@ -11,7 +13,6 @@
                    placeholder="Description"/>
             <br>
             <br>
-
             <div class="login-form">
                 <button type="submit">
                     Ajouter

@@ -34,12 +34,26 @@
                         Home</a
                     >
                 </li>
+                <?php if(isset($_SESSION['auth'])):?>
                 <li>
-                    <a href="/your-products/1">
+                    <a href="/your-products">
                         Mes Produits</a
                     >
                 </li>
+                <?php endif?>
             </ul>
+            <?php if(isset($_SESSION['auth'])){?>
+            <ul class="account">
+                <h3>Account</h3>
+                <li>
+                    <a href="/logout"
+                    >
+                        Se déconnecter</a
+                    >
+                </li>
+            </ul>
+            <?php } else{?>
+
             <ul class="account">
                 <h3>Account</h3>
                 <li>
@@ -55,6 +69,7 @@
                     >
                 </li>
             </ul>
+            <?php }?>
         </div>
     </div>
 </nav>

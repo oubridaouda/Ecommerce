@@ -16,12 +16,6 @@ class ArticleController extends controller
         return $this->view('product.index', compact('products'));
     }
 
-    public function login()
-    {
-        return $this->view('connexion.Login');
-
-    }
-
     public function products($id)
     {
         $product = new Product($this->getDB());
@@ -32,12 +26,6 @@ class ArticleController extends controller
     public function ProductsInsert()
     {
         return header('Location: /add-products');
-
-    }
-
-    public function signup()
-    {
-        return $this->view('connexion.SignUp');
 
     }
 

@@ -17,14 +17,13 @@
 
 <div class="login-page">
   <div class="form">
-
-    <form>
-      <input type="text" placeholder="&#xf007;  username"/>
-      <input type="password" id="password" placeholder="&#xf023;  password"/>
+    <form action="/login" method="POST">
+      <input type="text" name="username" placeholder="&#xf007;  username"/>
+      <input type="password" name="password" id="password" placeholder="&#xf023;  password"/>
       <i class="fas fa-eye" onclick="show()"></i> 
       <br>
       <br>
-      <button>LOGIN</button>
+      <button type="submit" name="submit">LOGIN</button>
       <p class="message"></p>
     </form>
 
