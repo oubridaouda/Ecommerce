@@ -98,11 +98,6 @@
     display: none;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-}
-
 .container:before, .container:after {
     content: "";
     display: block;

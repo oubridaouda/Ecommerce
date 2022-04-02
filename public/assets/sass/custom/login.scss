@@ -16,6 +16,22 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
+.password-with-eye{
+  display: flex;
+  i{
+    margin-right: -50px;
+    position: relative;
+    z-index: 8;
+    margin-top: 13px;
+
+
+    &::before{
+      margin-left: -50px;
+      color: #17a589;
+    }
+  }
+}
+
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -60,13 +76,6 @@
 
 .form .register-form {
   display: none;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
 }
 
 .container:before, .container:after {
