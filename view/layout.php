@@ -53,6 +53,13 @@
                 <ul class="account">
                     <h3>Account</h3>
                     <li>
+                        <a href="#"
+                        >
+                           Salut ! <?=$_SESSION['username']?>
+                        </a
+                        >
+                    </li>
+                    <li>
                         <a href="/logout"
                         >
                             Se déconnecter</a

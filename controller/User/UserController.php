@@ -24,6 +24,7 @@ class UserController extends controller
         //Verification de la correspondance du mot de passe hashé
         if (password_verify($_POST['password'], $user->password)) {
             $_SESSION['auth'] = $user->id;
+            $_SESSION['username'] = $user->username;
             return header('location: /your-products?success=true');
         } else {
             return header("Location: /login");
