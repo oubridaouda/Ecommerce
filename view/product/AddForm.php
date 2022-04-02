@@ -1,6 +1,6 @@
 <div class="login-page">
-    <h3>Formulaire <?= isset($params['product']) ? "de modification" : "d'jouter" ?> d'un article</h3>
     <div class="form">
+        <h3 style="color:white; margin-bottom: 27px;"><?= isset($params['product']) ? "Modification" : "Ajouter" ?> un article</h3>
         <form action="<?= isset($params['product']) ? "/product-edit/{$params['product']->product_id}" : "/create-products" ?>"
               method="post" enctype="multipart/form-data">
             <!--            --><?php //echo'<pre>'; print_r($params['product']); echo'<pre>';?>
