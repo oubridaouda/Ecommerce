@@ -12,7 +12,7 @@
                     width: 100%;
                     height: 100%;" href="/products/<?= $param->product_id ?>"></a>
                     <div class="wsk-cp-img">
-                        <img src="<?= SCRIPT . 'assets' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'image-1.jpg' ?>"
+                        <img src="<?=$params->image ?? '' ?><?= isset($params->image) ? '' : SCRIPT . 'assets' . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'image-1.jpg' ?>"
                              alt="Product" class="img-responsive"/>
                     </div>
                     <div class="wsk-cp-text">

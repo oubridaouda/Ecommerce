@@ -74,7 +74,7 @@ class ProductContoller extends controller
         $this->isUser();
 
         $sql = new Product($this->getDB());
-        $result = $sql->create($_POST);
+        $result = $sql->create($_POST, $_FILES);
 
         if ($result) {
 

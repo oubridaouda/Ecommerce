@@ -43,12 +43,14 @@ abstract class Model
         return $query->fetchAll();
     }
 
-    public function create(array $data)
+    public function create(array $data, array $img)
     {
 
         $firstParenthesis = "";
         $secondParenthesis = "";
         $i = 1;
+        $target_dir = "C:\laragon\www\Ecommerce\image/";
+        $target_file = $target_dir . basename($img["image"]["name"]);
 
         //conttruction de la réquète avec la boucle en recuperant les $data par post
         foreach ($data as $key => $value) {
@@ -59,12 +61,18 @@ abstract class Model
             $i++;
         }
 
+        if (move_uploaded_file($img["image"]["tmp_name"], $target_file)) {
+            echo "The file ". htmlspecialchars( basename( $img["image"]["name"])). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+
 //        echo '<pre>';
-//        print_r("INSERT INTO {$this->table} ($firstParenthesis, id_of_user) VALUES ('".$data['title_product']."','".$data['price']."','".$data['image']."','".$_SESSION['auth']."')"); die();
+//        print_r($data); die();
 //        echo '</pre>';
 
         //Requete d'insertion d'un produit
-        return $this->query("INSERT INTO {$this->table} ($firstParenthesis, id_of_user) VALUES ('" . $data['title_product'] . "','" . $data['price'] . "','" . $data['description'] . "','" . $data['image'] . "','" . $_SESSION['auth'] . "')", $data);
+        return $this->query("INSERT INTO {$this->table} ($firstParenthesis,image, id_of_user) VALUES ('" . $data['title_product'] . "','" . $data['price'] . "','" . $data['description'] . "','" . $img["image"]["name"] . "','" . $_SESSION['auth'] . "')", $data);
 
     }
 

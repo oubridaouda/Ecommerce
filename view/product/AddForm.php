@@ -2,7 +2,7 @@
     <h3>Formulaire <?= isset($params['product']) ? "de modification" : "d'jouter" ?> d'un article</h3>
     <div class="form">
         <form action="<?= isset($params['product']) ? "/product-edit/{$params['product']->product_id}" : "/create-products" ?>"
-              method="post">
+              method="post" enctype="multipart/form-data">
             <!--            --><?php //echo'<pre>'; print_r($params['product']); echo'<pre>';?>
             <input name="title_product" type="text" value="<?= $params['product']->title_product ?? '' ?>"
                    placeholder="Titre"/>
