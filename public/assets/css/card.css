@@ -12,7 +12,8 @@ body {
 .products-card {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, 17rem);
+    grid-template-columns: repeat(4, 14rem);
+    justify-content: center;
 }
 
 .products-container {
