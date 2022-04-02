@@ -62,7 +62,7 @@ abstract class Model
         }
 
         if (move_uploaded_file($img["image"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars( basename( $img["image"]["name"])). " has been uploaded.";
+            echo "The file " . htmlspecialchars(basename($img["image"]["name"])) . " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
@@ -92,7 +92,8 @@ abstract class Model
 
         $data['product_id'] = $id;
 
-        return $this->query("UPDATE ($this->table) SET {$sqlRequestPart} WHERE product_id = :product_id", $data);
+
+        return $this->query("UPDATE ($this->table) SET {$sqlRequestPart},update_date = UTC_TIMESTAMP  WHERE product_id = :product_id", $data);
     }
 
     //Methode de suppression de produit
