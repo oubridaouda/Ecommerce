@@ -43,7 +43,7 @@ class ProductContoller extends controller
 
         $product = (new Product($this->getDB()))->findById($id);
 
-        return $this->view('product.User-products', compact('product'));
+        return $this->view('user-pages.User-products', compact('product'));
 
     }
 
@@ -57,7 +57,7 @@ class ProductContoller extends controller
 
         if ($result) {
 
-            return $this->view('product.User-products', compact('product'));
+            return $this->view('user-pages.User-products', compact('product'));
         }
 
     }

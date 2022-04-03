@@ -19,6 +19,12 @@ $router = new Router($_GET['url']);
 /*Les routes*/
 
 //Connexion
+$router->get('/reset-page', 'Controller\User\UserController@ResetPasswordPage');
+$router->get('/reset-form', 'Controller\User\UserController@resetForm');
+$router->post('/reset-form', 'Controller\User\UserController@resetFormPost');
+$router->get('/reset-password-form', 'Controller\User\UserController@resetPasswordForm');
+$router->post('/reset-password-form', 'Controller\User\UserController@resetPasswordFormPost');
+$router->get('/reset-password-verify', 'Controller\User\UserController@resetPasswordVerify');
 $router->get('/login', 'Controller\User\UserController@login');
 $router->post('/login', 'Controller\User\UserController@loginPost');
 $router->get('/signup', 'Controller\User\UserController@signup');

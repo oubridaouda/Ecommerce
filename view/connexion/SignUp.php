@@ -33,14 +33,13 @@
     }
     ?>
     <div class="form">
+        <h3 style="color:white; margin-bottom: 27px;">Inscription</h3>
         <form action="signup" method="post">
-            <input type="text" name="username" placeholder="Nom d'utilisateur"/>
+            <input type="text" name="username" placeholder="Adresse mail"/>
             <div class="password-with-eye">
                 <input type="password" id="password" name="password" placeholder="Mot de passe"/>
                 <i class="fas fa-eye" onclick="show()"></i>
             </div>
-            <br>
-            <br>
             <button type="submit">
                 SIGN UP
             </button>

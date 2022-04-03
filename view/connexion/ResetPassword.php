@@ -9,19 +9,17 @@ if (isset($_GET['success'])) {
 ?>
 <div class="login-page">
     <div class="form">
-        <h3 style="color:white; margin-bottom: 27px;">Connexion</h3>
         <form action="/login" method="POST">
-            <input type="email" name="username" placeholder="&#xf007;  Adresse mail" required/>
             <div class="password-with-eye">
-                <input type="password" name="password" id="password" placeholder="&#xf023;  Mot de passe" required/>
+                <input type="password" name="password" id="password" placeholder="Mot de passe" required/>
                 <i class="fas fa-eye" onclick="show()"></i>
             </div>
-            <button type="submit" name="submit">LOGIN</button>
+            <div class="password-with-eye">
+                <input type="password" name="password" id="password2" placeholder="Confirm le mot de passe" required/>
+                <i class="icon fas fa-eye" onclick="show2()"></i>
+            </div>
+            <button type="submit">LOGIN</button>
             <p class="message"></p>
-        </form>
-
-        <form class="login-form">
-            <button type="button" onclick="window.location.href='signup'">SIGN UP</button>
         </form>
     </div>
 </div>
@@ -53,6 +51,18 @@ if (isset($_GET['success'])) {
             password.type = "text";
         } else {
             password.type = "password";
+        }
+    };
+
+    function show2() {
+        var password2 = document.getElementById("password2");
+        var icon2 = document.querySelector(".icon")
+
+        // ========== Checking type of password2 ===========
+        if (password2.type === "password") {
+            password2.type = "text";
+        } else {
+            password2.type = "password";
         }
     };
 </script>

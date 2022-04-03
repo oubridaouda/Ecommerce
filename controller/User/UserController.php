@@ -79,6 +79,58 @@ class UserController extends controller
 
     }
 
+    public function ResetPasswordPage()
+    {
+        return $this->view('connexion.ResetPasswordPage');
+    }
+
+    public function resetForm()
+    {
+        return $this->view('connexion.ResetPasswordForm');
+    }
+
+    public function resetFormPost()
+    {
+        $sql = new User($this->getDB());
+        $verify = $sql->getByUsername($_POST['email']);
+        if(!empty($verify)){
+
+            date_default_timezone_set("UTC");
+            $pass = "$verify->username,".time();
+            //Générer un mot de passe ou token
+            $token = $this->handleCrypt($pass);
+            //insertion d'un mot de passe oublié dans la bd
+            $update = $sql->query("UPDATE users SET recovery_password = '".$token."', update_date = UTC_TIMESTAMP WHERE id ={$verify->id}", $_POST);
+            //L'url de reinitialisation de mot de passe
+            $url= $_SERVER['HTTP_HOST']."/reset-password-verify&rstpwd=".$token;
+            //Envoyer un mail pour changer le mot de passe
+            mail('oubridaouda@gmail.com', 'This is a test subject line', $url);
+//            var_dump("UPDATE users SET recovery_password = {$token}, update_date = UTC_TIMESTAMP  WHERE id ={$verify->id}");
+//            die();
+            return header("Location: /reset-page");
+        }else{
+
+            return header("Location: /reset-form&success=false");
+        }
+    }
+
+    public function resetPasswordVerify()
+    {
+
+        var_dump($_GET['rstpwd']);
+//        return header("Location: /reset-page");
+    }
+
+    public function resetPasswordForm()
+    {
+        return $this->view('connexion.ResetPassword');
+    }
+
+    public function resetPasswordFormPost()
+    {
+        return header("Location: /reset-password-form");
+    }
+
     public function logout()
     {
         session_destroy();
