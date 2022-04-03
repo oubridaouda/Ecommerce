@@ -1,8 +1,8 @@
 <?php
 $message = false;
 $succes = -1;
-if (isset($_GET['succes'])) {
-    $succes = $_GET['succes'];
+if (isset($_GET['success'])) {
+    $succes = $_GET['success'];
     $message = ($succes) ? "Connexion reussie" : "Echec: Informations incorrectes";
     $class = ($succes) ? "btn btn-success" : "btn btn-danger";
 }
@@ -26,8 +26,25 @@ if (isset($_GET['succes'])) {
         </form>
     </div>
 </div>
-
 <script>
+    $(document).ready(function () {
+        $('.required').css('color', 'red');
+        let reload = <?php echo json_encode($succes);?>;
+        if (!reload) {
+            setTimeout(function () {
+                // window.location.reload();
+                window.location.href = '/signin';
+            }, 1500);
+        } else {
+            if (reload === "true") {
+                setTimeout(function () {
+                    // window.location.reload();
+                    window.location.href = '/';
+                }, 1500);
+            }
+        }
+    });
+
     function show() {
         var password = document.getElementById("password");
         var icon = document.querySelector(".fas")

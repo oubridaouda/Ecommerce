@@ -73,13 +73,58 @@ if(isset($_GET['success'])){
                             <a href="/product-edit/<?= $param->product_id ?>" class="button" type=""><i
                                         class="fa-solid fa-pen-to-square"></i></a>
 
-                            <button type="submit" class="button"><i class="fa-solid fa-trash"></i></button>
+                            <button type="submit" onclick="return confirm('Voulez vous vraiment supprimer l\'article <?= $param->product_id ?>')" class="button"><i class="fa-solid fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>
-            <?php }; ?>
+            <?php };
+
+            ?>
+
             <!-- and so on... -->
             </tbody>
+            <?php if (empty($params['Userproducts'])) { ?>
+                <tfoot style="position: relative;">
+                <td style="position: absolute; width:100%; background: #f3f3f3;">
+                    <div style="width: 100%; height: 20px;">
+
+                        <p style="text-align: center">Aucun enregistrement</p>
+                    </div>
+                </td>
+                </tfoot>
+            <?php } ?>
+
         </table>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('.required').css('color','red');
+        let reload = <?php echo json_encode($succes);?>;
+        if(!reload){
+            setTimeout(function () {
+                // window.location.reload();
+                window.location.href= '/signin';
+            },1500);
+        }else{
+            if(reload === 1){
+                setTimeout(function () {
+                    // window.location.reload();
+                    window.location.href= '/home';
+                },1500);
+            }
+        }
+    });
+    function show() {
+        var password = document.getElementById("password");
+        var icon = document.querySelector(".fas");
+
+        // ========== Checking type of password ===========
+        if (password.type === "password") {
+            password.type = "text";
+        } else {
+            password.type = "password"
+        }
+    }
+</script>

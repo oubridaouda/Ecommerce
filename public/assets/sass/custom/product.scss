@@ -10,6 +10,16 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
   }
+  .button-add{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
 
   .styled-table thead tr {
     background-color: #009879;
@@ -38,7 +48,7 @@
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 5px 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

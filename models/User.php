@@ -7,7 +7,7 @@ class User extends Model
 //nom de table lié au model
     protected $table = 'users';
 
-    public function getByUsername(string $username): User
+    public function getByUsername(string $username)
     {
 
         $query = $this->db->getPDO()->query("SELECT * FROM {$this->table} WHERE  username = '" . $username . "'");
