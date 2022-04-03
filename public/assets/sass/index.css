@@ -12,6 +12,17 @@
   width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
+.product-table .button-add {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 .product-table .styled-table thead tr {
   background-color: #009879;
   color: #ffffff;
@@ -35,7 +46,7 @@
   /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -852,13 +863,23 @@ nav a:hover::after {
     right: 0;
   }
 }
-.login-page {
+.product-form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 10px;
+}
+.product-form .login-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
 }
-
-.form {
+.product-form .form {
   position: relative;
   z-index: 1;
   background: #48c9b0;
@@ -868,8 +889,7 @@ nav a:hover::after {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
-.form input {
+.product-form .form textarea {
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -880,20 +900,7 @@ nav a:hover::after {
   font-size: 14px;
   border-radius: 10px;
 }
-
-.form textarea {
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-  border-radius: 10px;
-}
-
-.form button {
+.product-form .form button {
   font-family: "Titillium Web", sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -911,19 +918,16 @@ nav a:hover::after {
   cursor: pointer;
   transition: all 0.2s;
 }
-
-.form button:hover, .form button:focus {
+.product-form .form button:hover, .product-form .form button:focus {
   background: #148f77;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-4px);
 }
-
-.form button:active {
+.product-form .form button:active {
   transform: translateY(2px);
   box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.2);
 }
-
-.form .message {
+.product-form .form .message {
   margin: 6px 6px;
   color: #808080;
   font-size: 11px;
@@ -931,47 +935,39 @@ nav a:hover::after {
   font-weight: bold;
   font-style: normal;
 }
-
-.form .message a {
+.product-form .form .message a {
   color: #FFFFFF;
   text-decoration: none;
   font-size: 13px;
 }
-
-.form .register-form {
+.product-form .form .register-form {
   display: none;
 }
-
-.container:before, .container:after {
+.product-form .container:before, .product-form .container:after {
   content: "";
   display: block;
   clear: both;
 }
-
-.container .info {
+.product-form .container .info {
   margin: 50px auto;
   text-align: center;
 }
-
-.container .info h1 {
+.product-form .container .info h1 {
   margin: 0 0 15px;
   padding: 0;
   font-size: 36px;
   font-weight: 300;
   color: #1a1a1a;
 }
-
-.container .info span {
+.product-form .container .info span {
   color: #4d4d4d;
   font-size: 12px;
 }
-
-.container .info span a {
+.product-form .container .info span a {
   color: #000000;
   text-decoration: none;
 }
-
-.container .info span .fa {
+.product-form .container .info span .fa {
   color: #EF3B3A;
 }
 
