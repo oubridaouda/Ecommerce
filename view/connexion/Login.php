@@ -11,8 +11,10 @@ if (isset($_GET['succes'])) {
     <div class="form">
         <form action="/login" method="POST">
             <input type="text" name="username" placeholder="&#xf007;  username"/>
-            <input type="password" name="password" id="password" placeholder="&#xf023;  password"/>
-            <i class="fas fa-eye" onclick="show()"></i>
+            <div class="password-with-eye">
+                <input type="password" name="password" id="password" placeholder="&#xf023;  password"/>
+                <i class="fas fa-eye" onclick="show()"></i>
+            </div>
             <br>
             <br>
             <button type="submit" name="submit">LOGIN</button>
