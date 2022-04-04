@@ -24,8 +24,8 @@ if(isset($_GET['success'])){
                            placeholder="Titre"/>
                     <input name="price" type="text" value="<?= $params['product']->price ?? '' ?>"
                            placeholder="Prix"/>
-                    <input name="description" type="text" value="<?= $params['product']->description ?? '' ?>"
-                           placeholder="Description"/>
+                    <textarea style="max-width: 270px;" name="description" type="text" value="<?= $params['product']->description ?? '' ?>"
+                           placeholder="Description"></textarea>
                     <input name="image" type="file" accept="image/png, image/jpeg" value="<?= $params['product']->image ?? '' ?>"/>
                     <br>
                     <br>
@@ -39,11 +39,40 @@ if(isset($_GET['success'])){
         </div>
     </div>
 </div>
+<div id="id02" class="w3-modal">
+    <div style="position: relative; animation: animatetop 0.4s;">
+        <div class="product-form">
+            <div class="form">
+                    <span onclick="document.getElementById('id02').style.display='none'"
+                          class="w3-button w3-display-topright">&times;</span>
+                <h3 style="color:white; margin-bottom: 27px;">Modification d'un article</h3>
+                <form action="/product-edit" method="post" enctype="multipart/form-data">
+                    <!--            --><?php //echo'<pre>'; print_r($params['product']); echo'<pre>';?>
+                    <input name="title_product" id="title" type="text" value="<?= $params['product']->title_product ?? '' ?>"
+                    placeholder="Titre"/>
+                    <input name="price" id="price" type="text" value="<?= $params['product']->price ?? '' ?>"
+                    placeholder="Prix"/>
+                    <textarea style="max-width: 270px;" name="description" id="description" type="textarea" value="<?= $params['product']->description ?? '' ?>" placeholder="Description">
+                        </textarea>
+                    <input name="image" type="file" accept="image/png, image/jpeg" value="<?= $params['product']->image ?? '' ?>"/>
+                    <input style="display:none" name="product_id" id="id-product" type="text"/>
+                    <br>
+                    <br>
+                    <div class="login-form">
+                        <button type="submit">
+                            Modifier
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="product-table">
     <div style="display:flex; justify-content: center">
         <h3>LISTE DE MES ARTICLES</h3>
     </div>
-    <a onclick="document.getElementById('id01').style.display='block'" class="button-add" type="">Ajouter un article</a>
+    <a onclick="document.getElementById('id01').style.display='block'" class="button-add add-product" type="">Ajouter un article</a>
     <div style="display: flex; justify-content: center">
         <table class="styled-table">
             <thead>
@@ -64,10 +93,13 @@ if(isset($_GET['success'])){
                     <td><?= $param->title_product ?></td>
                     <td><?= substr($param->description, 0, 30) . '...' ?></td>
                     <td><?= $param->price ?></td>
+                    <td style="display:none"><?= $param->description ?></td>
+
                     <td>
 
                         <form action="/product-delete/<?= $param->product_id ?>" method="POST">
-                            <a href="/product-edit/<?= $param->product_id ?>" class="button" type=""><i class="fas fa-edit"></i></a>
+<!--                            href="/product-edit/-->
+                            <a onclick="document.getElementById('id02').style.display='block'" <?= $param->product_id ?> class="edit-button button" type=""><i class="fas fa-edit"></i></a>
 
                             <button type="submit" onclick="return confirm('Voulez vous vraiment supprimer l\'article <?= $param->product_id ?>')" class="button"><i class="fas fa-trash-alt"></i></i></button>
                         </form>
@@ -123,4 +155,32 @@ if(isset($_GET['success'])){
             password.type = "password"
         }
     }
+    $(document).ready(function () {
+
+        $('.add-product').on('click', function () {
+
+            $('#title').val("");
+            $('#price').val("");
+            $('#description').val("");
+        });
+    });
+
+    $(document).ready(function () {
+
+        $('.edit-button').on('click', function () {
+
+            $tr = $(this).closest('tr');
+
+            var data = $tr.children("td").map(function () {
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+
+            $('#id-product').val(data[0]);
+            $('#title').val(data[1]);
+            $('#price').val(data[3]);
+            $('#description').val(data[4]);
+        });
+    });
 </script>

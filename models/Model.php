@@ -67,17 +67,13 @@ abstract class Model
             echo "Sorry, there was an error uploading your file.";
         }
 
-//        echo '<pre>';
-//        print_r($data); die();
-//        echo '</pre>';
-
         //Requete d'insertion d'un produit
         return $this->query("INSERT INTO {$this->table} ($firstParenthesis,image, id_of_user) VALUES ('" . $data['title_product'] . "','" . $data['price'] . "','" . $data['description'] . "','" . $img["image"]["name"] . "','" . $_SESSION['auth'] . "')", $data);
 
     }
 
     //Methode de mis à jours de produit
-    public function update(int $id, array $data)
+    public function update(array $data)
     {
         $sqlRequestPart = "";
         $i = 1;
@@ -89,8 +85,6 @@ abstract class Model
             $sqlRequestPart .= "{$key} = :{$key}{$comma}";
             $i++;
         }
-
-        $data['product_id'] = $id;
 
 
         return $this->query("UPDATE ($this->table) SET {$sqlRequestPart},update_date = UTC_TIMESTAMP  WHERE product_id = :product_id", $data);

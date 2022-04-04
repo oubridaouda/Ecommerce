@@ -39,7 +39,7 @@ $router->get('/posts/:id', 'Controller\ArticleController@users');
 $router->get('/your-products', 'Controller\User\ProductContoller@findUserProduct');
 $router->post('/product-delete/:id', 'Controller\User\ProductContoller@destroy');
 $router->get('/product-edit/:id', 'Controller\User\ProductContoller@edit');
-$router->post('/product-edit/:id', 'Controller\User\ProductContoller@update');
+$router->post('/product-edit', 'Controller\User\ProductContoller@update');
 $router->get('/add-products', 'Controller\User\ProductContoller@addProducts');
 $router->post('/create-products', 'Controller\User\ProductContoller@createProducts');
 

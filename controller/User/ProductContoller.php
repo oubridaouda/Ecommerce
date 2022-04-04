@@ -9,6 +9,7 @@ use Models\User;
 class ProductContoller extends controller
 {
 
+    //Page d'accueil
     public function index()
     {
         $this->isUser();
@@ -17,6 +18,7 @@ class ProductContoller extends controller
         return $this->view('user-pages.index', compact('products'));
     }
 
+    //Liste de produits d'un utilisateur
     public function findUserProduct()
     {
         $this->isUser();
@@ -26,6 +28,7 @@ class ProductContoller extends controller
 
     }
 
+    //Supression d'un produit
     public function destroy(int $id)
     {
         $product = new User($this->getDB());
@@ -37,6 +40,7 @@ class ProductContoller extends controller
 
     }
 
+    //Edition d'un produit
     public function edit(int $id)
     {
         $this->isUser();
@@ -47,17 +51,19 @@ class ProductContoller extends controller
 
     }
 
-    public function update(int $id)
+    //Function d'edition d'un produit
+    public function update()
     {
         $this->isUser();
         $sql = new Product($this->getDB());
 
-        $result = $sql->update($id, $_POST);
-        $product = $sql->findById($id);
+        $result = $sql->update($_POST);
+        $product = $sql->findById($_POST['product_id']);
 
         if ($result) {
 
-            return $this->view('user-pages.User-products', compact('product'));
+            return header('Location: /your-products');
+
         }
 
     }
@@ -69,6 +75,7 @@ class ProductContoller extends controller
 
     }
 
+    //Function d'ajout d'un produit
     public function createProducts()
     {
         $this->isUser();

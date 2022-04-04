@@ -50,7 +50,7 @@ class UserController extends controller
 
         if (!empty($_POST['password']) && !empty($_POST['username'])) {
             $sql = new User($this->getDB());
-            $verify = $sql->getByUsername($_POST['username']) ;
+            $verify = $sql->getByUsername($_POST['username']);
 //            echo '<pre>';
 //            print_r(isset($verify->username));
 //            echo '<pre>';
@@ -89,25 +89,26 @@ class UserController extends controller
         return $this->view('connexion.ResetPasswordForm');
     }
 
+    //Function de récupération d'un mot de passe
     public function resetFormPost()
     {
         $sql = new User($this->getDB());
         $verify = $sql->getByUsername($_POST['email']);
-        if(!empty($verify)){
+        if (!empty($verify)) {
 
             date_default_timezone_set("UTC");
-            $pass = "$verify->username,".time();
+            $pass = "$verify->username," . time();
             //Générer un mot de passe ou token
             $token = $this->handleCrypt($pass);
             //insertion d'un mot de passe oublié dans la bd
-            $update = $sql->query("UPDATE users SET recovery_password = '".$token."', update_date = UTC_TIMESTAMP WHERE id ={$verify->id}", $_POST);
+            $update = $sql->query("UPDATE users SET recovery_password = '" . $token . "', update_date = UTC_TIMESTAMP WHERE id ={$verify->id}", $_POST);
             //L'url de reinitialisation de mot de passe
-            $url= $_SERVER['HTTP_HOST']."/reset-password-verify&rstpwd=".$token;
+            $url = $_SERVER['HTTP_HOST'] . "/reset-password-verify&rstpwd=" . $token;
             //Envoyer un mail pour changer le mot de passe
             mail($verify->username, 'This is a test subject line', $url);
 
             return header("Location: /login&reset-email-send=true");
-        }else{
+        } else {
 
             return header("Location: /reset-form&success=false");
         }
