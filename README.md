@@ -14,4 +14,14 @@ composer install
 #Run your server and start in the root of project 
 <br/>
 <br/>
-<h1>Project structure<h1>
+<h1>Project file structure</h1>
+<h2>controller</h2>
+<h2>database</h2>
+<h2>exception</h2>
+<h2>image</h2>
+<h2>models</h2>
+<h2>public</h2>
+<h2>router</h2>
+<h2>view</h2>
+
+
