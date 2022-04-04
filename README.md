@@ -12,3 +12,6 @@ composer install
 #Put the project in your server www folder( i use laragon)
 <br/>
 #Run your server and start in the root of project 
+<br/>
+<br/>
+<h1>Project structure<h1>
