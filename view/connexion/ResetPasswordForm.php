@@ -8,10 +8,17 @@ if (isset($_GET['success'])) {
 }
 ?>
 <div class="login-page">
-    <div class="form">
-        <h3 style="color:white; margin-bottom: 27px;">Mot de passe oublié</h3>
+    <div style="margin-top: 15px; text-align: start;" class="form">
+        <h3 style="color:white; margin-bottom: 27px; text-align: center;">Mot de passe oublié</h3>
         <form action="/reset-form" method="POST">
-            <input type="email" name="email" placeholder="&#xf007;  Adresse mail" required/>
+            <div style="margin-bottom: 15px">
+
+                <input style="margin: 0" type="email" name="email" placeholder="&#xf007;  Adresse mail" required/>
+                <?php if (isset($_GET['success']) && $_GET['success'] === "false") { ?>
+
+                    <label style="color:red;font-size: 14px;">Entrez une adresse mail valide</label>
+                <?php }; ?>
+            </div>
             <button type="submit">Soumettre</button>
             <p class="message"></p>
         </form>
