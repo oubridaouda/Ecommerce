@@ -72,7 +72,7 @@
                     <li>
                         <a href="/signup"
                         >
-                            S'inscrir</a
+                            S'inscrire</a
                         >
                     </li>
                 </ul>
@@ -83,8 +83,5 @@
 
 <!--        Toutes les page sont appelé dans le container via $content -->
 <div class="container"><?= $content ?></div>
-
-<link rel="stylesheet"
-      href="<?= SCRIPT . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'main.js' ?>"/>
 </body>
 </html>

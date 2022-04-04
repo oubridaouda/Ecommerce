@@ -24,7 +24,7 @@ if(isset($_GET['success'])){
                            placeholder="Titre"/>
                     <input name="price" type="text" value="<?= $params['product']->price ?? '' ?>"
                            placeholder="Prix"/>
-                    <textarea style="max-width: 270px;" name="description" type="text" value="<?= $params['product']->description ?? '' ?>"
+                    <textarea style="width: 270px;" name="description" type="text" value="<?= $params['product']->description ?? '' ?>"
                            placeholder="Description"></textarea>
                     <input name="image" type="file" accept="image/png, image/jpeg" value="<?= $params['product']->image ?? '' ?>"/>
                     <br>
@@ -52,7 +52,7 @@ if(isset($_GET['success'])){
                     placeholder="Titre"/>
                     <input name="price" id="price" type="text" value="<?= $params['product']->price ?? '' ?>"
                     placeholder="Prix"/>
-                    <textarea style="max-width: 270px;" name="description" id="description" type="textarea" value="<?= $params['product']->description ?? '' ?>" placeholder="Description">
+                    <textarea style="width: 270px;" name="description" id="description" type="textarea" value="<?= $params['product']->description ?? '' ?>" placeholder="Description">
                         </textarea>
                     <input name="image" type="file" accept="image/png, image/jpeg" value="<?= $params['product']->image ?? '' ?>"/>
                     <input style="display:none" name="product_id" id="id-product" type="text"/>

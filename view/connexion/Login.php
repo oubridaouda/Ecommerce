@@ -47,7 +47,7 @@ if (isset($_GET['success'])) {
                     </div>
                     <div class="toast__content">
                         <p class="toast__type">Mot de passe oublié</p>
-                        <p class="toast__message">Un de restauration de votre mot passe vous a été envoyé par email.</p>
+                        <p class="toast__message">Un mail de restauration de votre mot passe vous a été envoyé sur votre boite mail.</p>
                     </div>
                     <div class="toast__close">
                         <i class="fas fa-times"></i>

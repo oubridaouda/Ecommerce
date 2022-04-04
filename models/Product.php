@@ -9,7 +9,7 @@ class Product extends Model
 
     public function getExcerpt()
     {
-        return substr($this->description, 0, 100) . '...';
+        return substr($this->description, 0, 30) . '...';
 
     }
 }

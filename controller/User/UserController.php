@@ -51,10 +51,6 @@ class UserController extends controller
         if (!empty($_POST['password']) && !empty($_POST['username'])) {
             $sql = new User($this->getDB());
             $verify = $sql->getByUsername($_POST['username']);
-//            echo '<pre>';
-//            print_r(isset($verify->username));
-//            echo '<pre>';
-//            die();
             //if user does not exist
             if (!isset($verify->username)) {
 
