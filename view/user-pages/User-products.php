@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
 <?php
 $message = false;
@@ -29,7 +26,7 @@ if(isset($_GET['success'])){
                            placeholder="Prix"/>
                     <input name="description" type="text" value="<?= $params['product']->description ?? '' ?>"
                            placeholder="Description"/>
-                    <input name="image" type="file" value="<?= $params['product']->image ?? '' ?>"/>
+                    <input name="image" type="file" accept="image/png, image/jpeg" value="<?= $params['product']->image ?? '' ?>"/>
                     <br>
                     <br>
                     <div class="login-form">
@@ -70,10 +67,9 @@ if(isset($_GET['success'])){
                     <td>
 
                         <form action="/product-delete/<?= $param->product_id ?>" method="POST">
-                            <a href="/product-edit/<?= $param->product_id ?>" class="button" type=""><i
-                                        class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="/product-edit/<?= $param->product_id ?>" class="button" type=""><i class="fas fa-edit"></i></a>
 
-                            <button type="submit" onclick="return confirm('Voulez vous vraiment supprimer l\'article <?= $param->product_id ?>')" class="button"><i class="fa-solid fa-trash"></i></button>
+                            <button type="submit" onclick="return confirm('Voulez vous vraiment supprimer l\'article <?= $param->product_id ?>')" class="button"><i class="fas fa-trash-alt"></i></i></button>
                         </form>
                     </td>
                 </tr>

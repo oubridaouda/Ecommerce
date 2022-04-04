@@ -1,27 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<html>
-<head>
-    <title>Sign Up</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet"
-          href="<?= SCRIPT . 'assets' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'signup_style.scss' ?>"/>
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-            href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600"
-            rel="stylesheet"
-            type="text/css"
-    />
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-</head>
-
-<body class="body">
 <div class="login-page">
     <?php
     $message = false;
@@ -32,13 +8,64 @@
         $class = ($succes) ? "btn btn-success" : "btn btn-danger";
     }
     ?>
-    <div class="form">
-        <h3 style="color:white; margin-bottom: 27px;">Inscription</h3>
+    <div class="toast__container">
+        <div class="toast__cell">
+            <?php if (isset($_GET['success']) && $_GET['success'] === "false") { ?>
+
+
+                <div style="position: relative; animation: animatetop 1.5s;" class="toast toast--blue add-margin">
+                    <div class="toast__icon">
+                    </div>
+                    <div class="toast__content">
+                        <p class="toast__type">Echec</p>
+                        <p class="toast__message">Votre identifiant ou votre mot de passe est incorrect</p>
+                    </div>
+                    <div class="toast__close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+            <?php }; ?>
+
+            <?php if (isset($_GET['success']) && $_GET['success'] === "true") { ?>
+                <div style="position: relative; animation: animatetop 1.5s;width: 360px;" class="toast toast--green">
+                    <div class="toast__icon">
+                    </div>
+                    <div class="toast__content">
+                        <p class="toast__type">Confirmation</p>
+                        <p class="toast__message">Connexion réussie</p>
+                    </div>
+                    <div class="toast__close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+            <?php }; ?>
+        </div>
+    </div>
+    <div style="margin-top: 15px; text-align: start;" class="form">
+        <h3 style="color:white; margin-bottom: 27px; text-align: center;">Inscription</h3>
         <form action="signup" method="post">
-            <input type="text" name="username" placeholder="Adresse mail"/>
-            <div class="password-with-eye">
-                <input type="password" id="password" name="password" placeholder="Mot de passe"/>
-                <i class="fas fa-eye" onclick="show()"></i>
+            <div style="margin-bottom: 15px">
+
+                <input style="margin: 0" type="email" name="username" placeholder="&#xf007;  Adresse mail" required/>
+                <?php if (isset($_GET['success']) && $_GET['success'] === "false") { ?>
+
+                    <label style="color:red;font-size: 14px;">Entrez un nom d'utilisateur valide</label>
+                <?php }; ?>
+                <?php if (isset($_GET['success']) && $_GET['success'] === "null") { ?>
+
+                    <label style="color:red;font-size: 14px;">Cette adresse mail est déja utilisé</label>
+                <?php }; ?>
+            </div>
+
+            <div style="margin-bottom: 15px">
+                <div class="password-with-eye">
+                    <input style="margin: 0" type="password" name="password" id="password"
+                           placeholder="&#xf023;  Mot de passe" required/>
+                    <i class="fas fa-eye" onclick="show()"></i>
+                </div>
+                <?php if (isset($_GET['success']) && $_GET['success'] === "false") { ?>
+                    <label style="color:red;font-size: 14px;">Entrez un mot de passe valide</label>
+                <?php }; ?>
             </div>
             <button type="submit">
                 SIGN UP
@@ -67,9 +94,10 @@
         }
     });
 
+
     function show() {
         var password = document.getElementById("password");
-        var icon = document.querySelector(".fas");
+        var icon = document.querySelector(".fas")
 
         // ========== Checking type of password ===========
         if (password.type === "password") {
@@ -77,7 +105,15 @@
         } else {
             password.type = "password";
         }
-    }
+    };
+
+    jQuery(document).ready(function () {
+        jQuery('.toast__close').click(function (e) {
+            e.preventDefault();
+            var parent = $(this).parent('.toast');
+            parent.fadeOut("slow", function () {
+                $(this).remove();
+            });
+        });
+    });
 </script>
-</html>
-</html>

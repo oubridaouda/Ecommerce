@@ -104,10 +104,9 @@ class UserController extends controller
             //L'url de reinitialisation de mot de passe
             $url= $_SERVER['HTTP_HOST']."/reset-password-verify&rstpwd=".$token;
             //Envoyer un mail pour changer le mot de passe
-            mail('oubridaouda@gmail.com', 'This is a test subject line', $url);
-//            var_dump("UPDATE users SET recovery_password = {$token}, update_date = UTC_TIMESTAMP  WHERE id ={$verify->id}");
-//            die();
-            return header("Location: /reset-page");
+            mail($verify->username, 'This is a test subject line', $url);
+
+            return header("Location: /login&reset-email-send=true");
         }else{
 
             return header("Location: /reset-form&success=false");
