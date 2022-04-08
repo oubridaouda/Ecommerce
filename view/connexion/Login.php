@@ -11,6 +11,21 @@ if (isset($_GET['success'])) {
 <div class="login-page">
     <div class="toast__container">
         <div class="toast__cell">
+            <?php if (isset($_GET['success']) && $_GET['success'] === "error") { ?>
+
+
+                <div style="position: relative; animation: animatetop 1.5s;" class="toast toast--blue add-margin">
+                    <div class="toast__icon">
+                    </div>
+                    <div class="toast__content">
+                        <p class="toast__type">Echec</p>
+                        <p class="toast__message">Votre adresse mail doit avoir au moins 10 caractères</p>
+                    </div>
+                    <div class="toast__close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+            <?php }; ?>
             <?php if (isset($_GET['success']) && $_GET['success'] === "false") { ?>
 
 

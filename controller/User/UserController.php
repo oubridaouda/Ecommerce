@@ -6,6 +6,7 @@ use Controller\controller;
 use Models\Product;
 use Models\User;
 use Exception;
+use Validation\validator;
 
 class UserController extends controller
 {
@@ -20,6 +21,19 @@ class UserController extends controller
     //function de connexion d'un utilisateur
     public function loginPost()
     {
+
+        $validator = new validator($_POST);
+        $errors = $validator->validate([
+                'username' => ['required', 'min:10'],
+                'password' => ['required']
+            ]
+        );
+
+        if($errors){
+            header("Location: /login&success=error");
+            exit;
+
+        }
         if (!empty($_POST['username']) && !empty($_POST['password'])) {
             $user = (new User($this->getDB()))->getByUsername($_POST['username']);
 

@@ -12,7 +12,8 @@
             "Controller\\": "controller/",
             "Database\\": "database",
             "Models\\": "models",
-            "Exceptions\\": "exceptions"
+            "Exceptions\\": "exceptions",
+            "Validation\\": "validation"
         }
     },
     "require": {
